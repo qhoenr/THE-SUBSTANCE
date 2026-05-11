@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>the substance</title>
+
+
+
+	<style>
+
+	@font-face {
+    font-family: 'Orbit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/Orbit-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;}
+
+    @font-face {
+  font-family: 'PFMellon';
+  src: url('./fonts/PFMellon.otf') format('opentype');
+}
+
+	@import url('https://fonts.googleapis.com/css2?family=Are+You+Serious&family=Bagel+Fat+One&family=Manrope:wght@200..800&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+		html{font-size: 16px; font-family: "Noto Sans KR", sans-serif; word-break:keep-all; text-align: center;}
+		body,h1,h2,p,section{margin: 0; padding: 0; line-height: 150%;}
+		section{padding: 150px 0px}
+		header{padding: 0px 0px; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;}
+		section{padding: 0px 0px;overflow: hidden;}
+
+		h1{ font-size: 14rem; color: black; font-family: 'PFMellon'; }
+		h2{ font-size:4rem; color:white; font-weight:700; line-height:1.1; 
+			letter-spacing:-4px; }
+		h3{ font-size:2rem; color: white; font-weight:700; line-height:1.4;
+			letter-spacing:-4px }
+		p{ font-size:1.8rem; color:grey; padding-top:30px; font-weight:300;
+			letter-spacing:-1px }
+		html{scroll-behavior: smooth;}
+
+
+		.contents{width: 100%; margin: auto; position: relative;
+			background-color: white;}
+
+		.flex{display: flex; justify-content: center; width:100%;}
+		.column {flex: 1; display: flex; flex-direction: column;}
+        .menu{display: flex;
+                font-size: 18px; padding: 0; margin: 0; gap: 300px;}
+        .text-box{display: inline-block; background: white; color: black; font-family: 'PFMellon', sans-serif;
+        			font-size: 4.5rem; padding: 6px 50px; line-height: 1;}
+
+        .title-img{width: 500px; height: auto;}
+        .person{width: 800px; height: auto; transform: translateX(50%);}
+        .gif{background: url(change.gif); background-size: cover; background-attachment: fixed;
+        	padding: 100px 0px;}
+
+
+        .gradient{background: linear-gradient(to bottom, white 0%, #caff00 100%);}
+        .bg-g{background: #D0FF1D; padding: 200px 0px;}
+        .bg-b{background: #121212; padding-top: 200px;}
+
+        .product-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 90px 0px;
+
+    justify-items: center;
+    align-items: center;
+}
+
+.product-grid img{
+    width: 100%;
+    max-width: 520px;
+    display: block;
+}
+
+        li{list-style-type: none;
+        font-family: 'Orbit', sans-serif;
+        font-weight: 300;
+        font-style: normal;}
+        a{display:block; padding:30px 30px;
+            color: black;}
+        a:hover{background: rgb(255, 255, 255);
+                color: #CAFF00}
+
+
+/* 일단 배치*/
+
+	.gif-text{text-align: left; margin: 100px}
+
+	.syringe{
+  display: block;
+  width: 850px;
+
+  margin-left: auto;
+  margin-right: 0px;
+
+  transform: translateY(-260px);
+}
+
+
+ /* CONTENTS 섹션 - 상품 상세 카드 */
+
+ 	.hover-img{
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+}
+
+.hover-img img{
+  width: 100%;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.img-hover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.hover-img:hover .img-hover{
+  opacity: 1;
+}
+
+.hover-img:hover .img-default{
+  opacity: 0;
+}
+
+	.acti{
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 100px 80px 100px 80px;
+  margin-top: 0;
+  text-align: left;
+}
+	.product-detail-img{
+		width: 450px;
+		flex-shrink: 0;
+	}
+	.product-detail-info{
+		flex: 1;
+	}
+	.product-detail-info h3{
+		color: #333;
+		letter-spacing: 1.3px;
+	}
+	.product-detail-info p{color: #3b3b3b; font-size: 20px; line-height: 160%}
+
+	.product-specs{
+		display: flex;
+		gap: 200px;
+		margin-top: 30px;
+	}
+
+	/* RULE 섹션 */
+	.rule-block{
+		padding: 100px 0 80px 0;
+		border-bottom: 1px solid #2a2a2a; background: #121212;
+	}
+	.rule-block:last-of-type{
+		border-bottom: none; 
+	}
+	.rule-number{
+		font-size: 18rem;
+		font-family: 'PFMellon', sans-serif;
+		color: white;
+		line-height: 0.85;
+		margin: 0;
+		padding: 0;
+		letter-spacing: -3px;
+	}
+	.rule-unit{
+		font-size: 18rem;
+		font-family: 'PFMellon', sans-serif;
+		color: #D0FF1D;
+		line-height: 0.85;
+		letter-spacing: -3px;
+	}
+	.rule-desc{
+		font-size: 1.5rem;
+		color: #888;
+		padding: 30px 0 0 0;
+		letter-spacing: 0;
+	
+	}
+	.remember-text{
+		font-size: 18rem;
+		font-family: 'PFMellon', sans-serif;
+		color: #D0FF1D;
+		line-height: 0.95;
+		letter-spacing: -3px;
+		text-transform: uppercase;
+		margin: 0;
+	}
+ 
+	/* REVIEW 섹션 */
+
+	.review-layout{
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		gap: 180px;
+		padding: 0 300px;
+	}
+	.review-person{
+		width: 320px;
+		height: auto;
+		flex-shrink: 0;
+	}
+
+	.auto-change-img {
+  animation: changeReviewImage 3s infinite;
+}
+
+@keyframes changeReviewImage {
+  0% {
+    content: url("sparkle1.png");
+  }
+
+  16.6% {
+    content: url("sparkle2.png");
+  }
+
+  33% {
+    content: url("sparkle3.png");
+  }
+
+  50% {
+    content: url("sparkle4.png");
+  }
+  66.6% {
+    content: url("sparkle5.png");
+  }
+  83% {
+    content: url("sparkle6.png");
+  }
+  100% {
+    content: url("sparkle1.png");
+  }
+}
+
+.review-layout:has(.review-person:hover) .auto-change-img {
+  animation: reviewImageSetHover 3s infinite;
+}
+
+@keyframes reviewImageSetHover {
+  0% {
+    content: url("sue1.png");
+  }
+
+  16.6% {
+    content: url("sue2.png");
+  }
+
+  33% {
+    content: url("sue3.png");
+  }
+
+  50% {
+    content: url("sue4.png");
+  }
+  66.6% {
+    content: url("sue5.png");
+  }
+  83% {
+    content: url("sue6.png");
+  }
+  100% {
+    content: url("sue1.png");
+  }
+}
+
+
+	.review-text{
+		text-align: left;
+		flex: 1;
+		padding-top: 130px;
+	}
+	
+	.review-body{
+		font-size: 1rem;
+		color: #333;
+		font-weight: 300;
+		line-height: 1.7;
+		padding: 50px 0px;
+		padding-right: 0;
+		letter-spacing: 0;
+	}
+
+	.hover-review {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+
+  margin-top: 0;
+  color: black;
+  line-height: 1.8;
+
+  transition: opacity 0.4s ease, max-height 0.4s ease, margin-top 0.4s ease;
+}
+
+.review-layout:has(.review-person:hover) .hover-review {
+  opacity: 1;
+  max-height: 200px;
+  margin-top: 32px;
+}
+ 
+	/* CTA 섹션 */
+	.bg-cta{
+		background: #121212;
+		padding: 150px 60px;
+	}
+	.cta-headline{
+		font-size: 9rem;
+		font-family: 'PFMellon', sans-serif;
+		color: #D0FF1D;
+		line-height: 0.9;
+		text-transform: uppercase;
+		margin: 0 0 80px 0;
+	}
+	.cta-btn{
+		display: inline-block;
+		background: #D0FF1D;
+		color: black;
+		font-family: 'Orbit', sans-serif;
+		font-size: 1.2rem;
+		padding: 20px 80px;
+		text-decoration: none;
+		letter-spacing: 2px;
+		cursor: pointer;
+		border: none;
+	}
+	.cta-btn:hover{
+		background: white;
+	}
+ 
+
+	.footer{background: black; color: grey; padding: 50px 0px 100px}
+	.footer p{font-size: 15px}
+
+
+section:first-of-type h1{
+  position: relative;
+  animation: titleFlicker 2s infinite;
+  cursor: default;
+}
+
+section:first-of-type h1:hover{
+  animation: titlePanic 0.3s infinite;
+  color: #D0FF1D;
+  text-shadow:
+    3px 0 #D0FF1D,
+    -3px 0 white,
+    0 0 20px #D0FF1D;
+}
+
+@keyframes titleFlicker{
+  0%, 88%, 100%{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+  89%{
+    opacity: 0.25;
+    filter: blur(2px);
+    transform: translateX(-4px);
+  }
+  90%{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(5px);
+  }
+  92%{
+    opacity: 0.45;
+    filter: blur(1px);
+  }
+  94%{
+    opacity: 1;
+  }
+}
+
+@keyframes titlePanic{
+  0%{ transform: translateX(0); }
+  10%{ transform: translateX(-6px); }
+  20%{ transform: translateX(5px); }
+  30%{ transform: translateX(-4px); }
+  40%{ transform: translateX(7px); }
+  50%{ transform: translateX(-3px); }
+  60%{ transform: translateX(4px); }
+  70%{ transform: translateX(-8px); }
+  80%{ transform: translateX(6px); }
+  90%{ transform: translateX(-2px); }
+  100%{ transform: translateX(0); }
+}
+
+.gradient{
+  position: relative;
+  overflow: hidden;
+}
+
+.floating-text{
+  position: absolute;
+  z-index: 5;
+  color: #CF0C61;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  opacity: 0.75;
+  mix-blend-mode: multiply;
+  pointer-events: auto;
+  cursor: default;
+  animation: toxicFloat 8s infinite ease-in-out;
+  transition: 
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    filter 0.25s ease;
+}
+
+.floating-text:hover{
+  opacity: 1;
+  filter: blur(1px);
+  transform: scale(1.8) rotate(-8deg);
+  color: black;
+  text-shadow: 0 0 12px #CF0C61;
+}
+
+.text-1{ top: 12%; left: 8%; animation-delay: 0s; }
+.text-2{ top: 28%; right: 10%; animation-delay: -1.2s; }
+.text-3{ top: 48%; left: 18%; animation-delay: -2.5s; }
+.text-4{ top: 62%; right: 20%; animation-delay: -3.4s; }
+.text-5{ top: 76%; left: 34%; animation-delay: -4.7s; }
+.text-6{ top: 18%; left: 48%; animation-delay: -5.8s; }
+
+@keyframes toxicFloat{
+  0%{
+    transform: translate(0,0) rotate(0deg);
+  }
+  25%{
+    transform: translate(40px,-28px) rotate(4deg);
+  }
+  50%{
+    transform: translate(-18px,32px) rotate(-5deg);
+  }
+  75%{
+    transform: translate(30px,20px) rotate(3deg);
+  }
+  100%{
+    transform: translate(0,0) rotate(0deg);
+  }
+}
+
+.hover-img:hover{
+  animation: productShake 0.28s infinite;
+  filter: contrast(1.2) saturate(1.6);
+}
+
+@keyframes productShake{
+  0%{ transform: translate(0,0) rotate(0deg); }
+  25%{ transform: translate(3px,-2px) rotate(0.8deg); }
+  50%{ transform: translate(-2px,3px) rotate(-0.8deg); }
+  75%{ transform: translate(2px,1px) rotate(0.5deg); }
+  100%{ transform: translate(0,0) rotate(0deg); }
+}
+
+
+.cta-btn{
+  position: relative;
+  transition: 
+    transform 0.25s ease,
+    letter-spacing 0.25s ease,
+    filter 0.25s ease;
+}
+
+.cta-btn:hover{
+  transform: translateY(-8px) scale(1.08);
+  letter-spacing: 6px;
+  filter: blur(0.4px);
+}
+
+.review-layout:has(.review-person:hover) .review-text h2{
+  animation: reviewWarning 0.7s infinite;
+}
+
+@keyframes reviewWarning{
+  0%, 100%{
+    text-shadow: none;
+    filter: blur(0);
+  }
+  50%{
+    text-shadow: 0 0 20px #CF0C61, 0 0 40px white;
+    filter: blur(0.6px);
+  }
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background: #121212;
+}
+
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(
+    to bottom,
+    #D0FF1D 0%,
+    #D0FF1D 60%,
+    #CF0C61 100%
+  );
+  border-radius: 999px;
+  border: 2px solid #121212;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(
+    to bottom,
+    white 0%,
+    #D0FF1D 55%,
+    #CF0C61 100%
+  );
+}
+
+html{
+  scrollbar-width: thin;
+  scrollbar-color: #D0FF1D #121212;
+}
+
+.acti{
+  position: relative;
+  overflow: hidden;
+}
+
+/* 제품 이미지: 은은한 활성화 발광 */
+.product-detail-img{
+  transition: 
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+.acti:hover .product-detail-img{
+  transform: scale(1.04) rotate(-1deg);
+  filter:
+    drop-shadow(0 0 18px rgba(208, 255, 29, 0.85))
+    drop-shadow(0 0 35px rgba(208, 255, 29, 0.35));
+}
+
+
+
+/* 설명문 위를 지나가는 스캔 라인 */
+.product-detail-info::before{
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(208, 255, 29, 0.35),
+    transparent
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+
+.acti:hover .product-detail-info::before{
+  opacity: 1;
+  animation: scanLine 1.6s linear infinite;
+}
+
+@keyframes scanLine{
+  0%{
+    top: -100px;
+  }
+  100%{
+    top: 100%;
+  }
+}
+
+
+/* 본문: hover 시 살짝 선명하게 */
+.product-detail-info p{
+  transition: color 0.3s ease, filter 0.3s ease;
+}
+
+.acti:hover .product-detail-info > p{
+  color: #111;
+  filter: contrast(1.15);
+}
+
+/* 스펙 영역: 실험 수치 카드처럼 */
+.product-specs > div{
+  position: relative;
+  padding: 18px 22px;
+  border-left: 1px solid rgba(0,0,0,0.2);
+  transition: 
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.product-specs > div:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(208, 255, 29, 0.35);
+}
+
+
+
+
+	</style>
+</head>
+<body>
+	<header>
+
+<!-- 내비 -->
+
+		<nav>
+            <div class="flex">
+                <ul class="menu">
+                    <li class="item">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="item">
+                        <a href="#item">Item</a>
+                    </li>
+                    <li class="item">
+                        <a href="#review">Review</a>
+                    </li>
+                    <li class="item">
+                        <a href="#mypage">Mypage</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+	</header>
+
+<!-- 타이틀 화면-->
+
+	<section id="about">
+		<div>
+			<h1>THE SUBSTANCE</h1>
+			<img class="title-img" src="activator-green.png">
+		</div>
+
+<!-- 시작 -->
+	<section style="margin: 100px;"></section>
+		<div class="gradient">
+			<p class="floating-text text-1">어느새 자글자글한 팔자주름</p>
+			<p class="floating-text text-2">꾸며봐도 아름답지 않아</p>
+			<p class="floating-text text-3">대체되는 건 당연하지</p>
+			<p class="floating-text text-4">이름답지 않아</p>
+			<p class="floating-text text-5">늙었으니 빠져야지</p>
+			<p class="floating-text text-6">주름이 너무 많아</p>
+			<img class="person" src="pain.png">
+		</div>
+		<div class="gif">
+			<h2 class="gif-text">단 한 번의 투여로 시작됩니다.</h2>
+			<h3 class="gif-text"><span style="color: #D0FF1D;">더 젊어지고,<br>더 아름다워지고,<br>더 완벽해진 당신</span>을 만나보세요.</h3>
+			<img class="syringe" src="syringe-green.png">
+		</div>
+		<div class="bg-g" id="item">
+			<h1 class="text-box">CONTENTS</h1>
+	
+    		<div class="product-grid" style="padding-top: 200px;">
+  				<div class="hover-img">
+    			<img class="img-default" src="a1.png">
+    			<img class="img-hover" src="a2.png">
+  				</div>
+
+  				<div class="hover-img">
+   				<img class="img-default" src="b1.png">
+    			<img class="img-hover" src="b2.png">
+  				</div>
+  				<div class="hover-img">
+    			<img class="img-default" src="c1.png">
+    			<img class="img-hover" src="c2.png">
+  				</div>
+
+  				<div class="hover-img">
+    			<img class="img-default" src="d1.png">
+    			<img class="img-hover" src="d2.png">
+  				</div>
+    		</div>
+    	</div>
+<!-- 상품 상세 카드 -->
+			<div class="acti bg-g">
+				<img class="product-detail-img" src="activator.png">
+				<div class="product-detail-info">
+					<h2 style="color: black;">활성화 용액</h2>
+					<p>ACTIVATOR는 세포 반응의 초기 단계를 유도하도록 설계된 고농축 생체 활성 용액입니다. 특수 안정화된 형광성 바이오 폴리머와 이온성 촉매 복합체가 결합되어, 주입 직후 체내 미세 전류와 삼투압 변화에 반응하며 잠재된 세포 신호계를 일시적으로 활성화합니다. 본 용액은 비활성 상태의 세포막 수용체에 선택적으로 결합하여, 세포 내 단백질 합성 경로와 재생 관련 효소 반응을 촉진하고, 이 과정에서 활성 인자는 일정 시간 동안만 작동하도록 설계되어 과도한 증식을 방지하며, 내부 pH 균형과 전해질 농도에 따라 서서히 분해됩니다. ACTIVATOR의 핵심 성분인 L-시냅틱 리액턴트는 신경계와 근섬유 조직 사이의 신호 전달 속도를 높이고, 셀룰러 프라이밍 컴플렉스는 조직이 분화 반응에 진입할 수 있는 생화학적 환경을 형성합니다. 또한 용액 내 형광 안정 입자는 활성 진행 상태를 시각적으로 확인할 수 있도록 설계되어, 반응 중 농도 변화에 따라 미세한 색상 편차를 보입니다. 본 제품은 단독 사용이 아닌 지정된 안정화 시스템과 함께 작동하도록 개발되었으며, 사용 횟수와 용량을 엄격히 준수해야 합니다. 정해진 균형을 벗어난 사용은 세포 신호의 비정상적 중첩, 대사 불균형, 조직 피로 반응을 유발할 수 있습니다.</p>
+					<div class="product-specs">
+						<div>
+							<p style="font-weight: 700;">용량</p>
+							<p>50 ML</p>
+						</div>
+						<div>
+							<p style="font-weight: 700;">투여 방법</p>
+							<p>SPINAL</p>
+						</div>
+						<div>
+							<p style="font-weight: 700;">횟수</p>
+							<p>1회</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- ⑤ RULE 섹션 (검정 배경) -->
+		<div class="bg-b">
+			<h1 class="text-box">RULE</h1>
+		</div>
+ 
+		<!-- 1 WEEK -->
+		<div class="rule-block">
+			<p class="rule-number">1 <span class="rule-unit">WEEK</span></p>
+			<p class="rule-desc">정확히 7일 간격으로 몸을 바꿔야 합니다.</p>
+		</div>
+ 
+		<!-- 7 DAYS -->
+		<div class="rule-block">
+			<p class="rule-number">7 <span class="rule-unit">DAYS</span></p>
+			<p class="rule-desc">비활성 상태의 몸은 영양을 공급받은 상태로<br>7일을 휴식해야 합니다.</p>
+		</div>
+ 
+		<!-- 1 BODY -->
+		<div class="rule-block">
+			<p class="rule-number">1 <span class="rule-unit">BODY</span></p>
+			<p class="rule-desc">한 번에 오직 하나의 몸만 활동이 가능합니다.</p>
+		</div>
+ 
+		<!-- REMEMBER YOU ARE ONE -->
+		<div class="rule-block" style="padding-bottom: 200px;">
+			<p class="remember-text">REMEMBER<br>YOU ARE ONE.</p>
+			<p class="rule-desc">반드시 기억하세요. 당신은 하나입니다.</p>
+		</div>
+ 
+<!-- ⑥ REVIEW 섹션 (노란 배경) -->
+	<div class="bg-g" id="review">
+		<h1 class="text-box">REVIEW</h1>
+		<div class="review-layout">
+			<img class="review-person auto-change-img" src="sparkle1.png">
+ 
+			<div class="review-text">
+				<h2 style="color: #CF0C61;">엘리자베스 스파클</h2>
+				<p class="review-body">
+					THE SUBSTANCE를 사용한 뒤, 저는 아주 오랜만에 제 안의 가장 완벽한 버전과 다시 마주했습니다. 카메라 앞에서의 에너지, 피부의 긴장감, 몸의 반응 속도까지 모든 것이 선명해졌고, 마치 시간이 저를 다시 선택한 듯한 기분이 들었습니다. 제품의 효과는 놀라울 만큼 즉각적이지만, 겉으로는 우아하고 자연스럽게 드러납니다.
+					<br> <br>아주 특별한 밤이었어요. 조명이 켜지고, 모두가 저를 바라보던 그 순간까지는요. 
+					<br>아, 사용 규칙은 반드시 지키세요.
+				<h2 class="hover-review" style="color: #CF0C61; margin-bottom: -80px;">SUE</h2>
+				<p class="review-body hover-review">
+					저는 원래 이 모습이었어야 해요. 피부는 더 매끈해졌고, 몸은 가볍고, 사람들의 시선은 이전보다 훨씬 빠르게 저를 향했어요. 그냥 숨 쉬듯 자연스럽게 완벽해지는 기분이었습니다. 가장 만족스러운 점은 결과가 즉각적이에요. 저는 그 덕분에 더 많은 기회와 더 밝은 조명을 마주할 수 있었습니다. 
+					<br><br>다만 저는… 완벽한 순간이 끝나는 게 조금 아쉬웠을 뿐이에요.
+				</p>
+			</div>
+		</div>
+	</div>
+ 
+	<!-- 구매차 -->
+	<section class="bg-cta" id="mypage">
+		<p class="cta-headline">A BETTER VERSION<br>OF YOURSELF.</p>
+		<a class="cta-btn">지금 바로 구매하세요</a>
+	</section>
+	<footer>
+		<div class="footer">
+                <p>THE SUBSTANCE.<p>
+                <p>35 North Byron Alley, 503</p>
+                <p>2026&copy;yehee.</p>
+            </div>
+        </section>
+    </footer>
+
+	<script>
+
+
+	const ruleBlocks = document.querySelectorAll('.rule-block');
+	ruleBlocks.forEach((block, i) => {
+		block.style.zIndex = i + 1;
+	});
+ 
+	function updateRuleStack() {
+		ruleBlocks.forEach((block, i) => {
+			const nextBlock = ruleBlocks[i + 1];
+			if (!nextBlock) return;
+ 
+			const nextTop = nextBlock.getBoundingClientRect().top;
+			const blockH  = block.offsetHeight;
+			const coverage = Math.max(0, Math.min(1, 1 - (nextTop / blockH)));
+			const scale      = 1 - coverage * 0.05 * (ruleBlocks.length - i);
+			const brightness = 1 - coverage * 0.5;
+ 
+			block.style.transform  = `scale(${Math.max(scale, 0.82)})`;
+			block.style.filter     = `brightness(${Math.max(brightness, 0.4)})`;
+		});
+	}
+ 
+	window.addEventListener('scroll', updateRuleStack, { passive: true });
+	updateRuleStack();
+
+	const floatingTexts = document.querySelectorAll('.floating-text');
+
+function updateFloatingTexts(){
+  const scrollY = window.scrollY;
+
+  floatingTexts.forEach((text, i) => {
+    const speed = 0.08 + i * 0.025;
+    const chaos = Math.sin(scrollY * 0.015 + i) * 18;
+
+    text.style.transform = `
+      translateY(${scrollY * speed}px)
+      translateX(${chaos}px)
+      rotate(${chaos * 0.25}deg)
+    `;
+
+    text.style.opacity = Math.min(0.95, 0.45 + scrollY / 1600);
+  });
+}
+
+window.addEventListener('scroll', updateFloatingTexts, { passive: true });
+updateFloatingTexts();
+
+
+const warningWords = [
+  'REMEMBER YOU ARE ONE',
+  'BALANCE IS REQUIRED',
+  '7 DAYS',
+  'ONE BODY',
+  'DO NOT EXCEED',
+  'YOU ARE NOT TWO'
+];
+
+document.addEventListener('click', function(e){
+  const warning = document.createElement('div');
+  warning.textContent = warningWords[Math.floor(Math.random() * warningWords.length)];
+
+  warning.style.position = 'fixed';
+  warning.style.left = e.clientX + 'px';
+  warning.style.top = e.clientY + 'px';
+  warning.style.zIndex = '9999';
+  warning.style.color = '#121212';
+  warning.style.fontFamily = 'PFMellon, sans-serif';
+  warning.style.fontSize = '2rem';
+  warning.style.pointerEvents = 'none';
+  warning.style.transform = 'translate(-50%, -50%) scale(0.5)';
+  warning.style.opacity = '1';
+  warning.style.transition = 'all 0.8s ease';
+
+  document.body.appendChild(warning);
+
+  requestAnimationFrame(() => {
+    warning.style.transform = 'translate(-50%, -120%) scale(1.4) rotate(-8deg)';
+    warning.style.opacity = '0';
+    warning.style.filter = 'blur(2px)';
+  });
+
+  setTimeout(() => {
+    warning.remove();
+  }, 800);
+});
+
+
+
+	</script>
+
+
+</body>
+</html>
