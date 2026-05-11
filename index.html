@@ -249,28 +249,28 @@
 
 @keyframes reviewImageSetHover {
   0% {
-    content: url("sue1.png");
+    content: url("sue11.png");
   }
 
   16.6% {
-    content: url("sue2.png");
+    content: url("sue22.png");
   }
 
   33% {
-    content: url("sue3.png");
+    content: url("sue33.png");
   }
 
   50% {
-    content: url("sue4.png");
+    content: url("sue44.png");
   }
   66.6% {
-    content: url("sue5.png");
+    content: url("sue55.png");
   }
   83% {
-    content: url("sue6.png");
+    content: url("sue66.png");
   }
   100% {
-    content: url("sue1.png");
+    content: url("sue11.png");
   }
 }
 
@@ -612,7 +612,36 @@ html{
 }
 
 
+body {
+  cursor: none;
+}
 
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #d7ff3f;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 12px #d7ff3f,
+    0 0 28px rgba(215, 255, 63, 0.6);
+  mix-blend-mode: difference;
+  transition:
+    width 0.18s ease,
+    height 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.custom-cursor.is-clicking {
+  width: 32px;
+  height: 32px;
+  opacity: 0.65;
+}
 
 	</style>
 </head>
@@ -712,7 +741,7 @@ html{
 				</div>
 			</div>
 		</div>
-<!-- ⑤ RULE 섹션 (검정 배경) -->
+<!-- RULE 섹션 (검정 배경) -->
 		<div class="bg-b">
 			<h1 class="text-box">RULE</h1>
 		</div>
@@ -741,7 +770,7 @@ html{
 			<p class="rule-desc">반드시 기억하세요. 당신은 하나입니다.</p>
 		</div>
  
-<!-- ⑥ REVIEW 섹션 (노란 배경) -->
+<!-- REVIEW 섹션 (노란 배경) -->
 	<div class="bg-g" id="review">
 		<h1 class="text-box">REVIEW</h1>
 		<div class="review-layout">
@@ -774,6 +803,9 @@ html{
                 <p>2026&copy;yehee.</p>
             </div>
         </section>
+
+      <div class="custom-cursor"></div>
+      
     </footer>
 
 	<script>
@@ -864,7 +896,20 @@ document.addEventListener('click', function(e){
   }, 800);
 });
 
+  const cursor = document.querySelector('.custom-cursor');
 
+  window.addEventListener('mousemove', (e) => {
+    cursor.style.top = e.clientY + 'px';
+    cursor.style.left = e.clientX + 'px';
+  });
+
+  window.addEventListener('mousedown', () => {
+    cursor.classList.add('is-clicking');
+  });
+
+  window.addEventListener('mouseup', () => {
+    cursor.classList.remove('is-clicking');
+  });
 
 	</script>
 
